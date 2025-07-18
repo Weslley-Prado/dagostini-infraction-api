@@ -13,10 +13,37 @@ security:
   - BearerAuth: []
 
 paths:
+  /auth/login:
+    post:
+      summary: Authenticate user and generate JWT token
+      operationId: login
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: Successful authentication, returns JWT token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+        '401':
+          description: Invalid credentials
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetail'
   /equipments:
     post:
       summary: Create a new equipment
       operationId: createEquipment
+      tags:
+        - Registry Equipment
       requestBody:
         required: true
         content:
@@ -45,6 +72,8 @@ paths:
     get:
       summary: List all equipments
       operationId: listEquipments
+      tags:
+        - Consult Equipment
       responses:
         '200':
           description: List of equipments
@@ -58,6 +87,8 @@ paths:
     get:
       summary: Find equipment by serial
       operationId: findEquipmentBySerial
+      tags:
+        - Consult Equipment By Serial
       parameters:
         - name: serial
           in: path
@@ -81,13 +112,15 @@ paths:
     post:
       summary: Register a new violation
       operationId: createViolation
+      tags:
+        - Registry Violation
       requestBody:
         required: true
         content:
           multipart/form-data:
             schema:
               type: object
-              required: [violation]
+              required: [violation, picture]
               properties:
                 violation:
                   $ref: '#/components/schemas/ViolationRequestRepresentation'
@@ -118,6 +151,8 @@ paths:
     get:
       summary: Find violation by ID
       operationId: findViolationById
+      tags:
+        - Consult Violation By ID
       parameters:
         - name: id
           in: path
@@ -142,6 +177,8 @@ paths:
     get:
       summary: List violations by equipment serial
       operationId: listViolationsByEquipment
+      tags:
+        - Consult Violation By Equipment Serial
       parameters:
         - name: serial
           in: path
@@ -171,6 +208,21 @@ paths:
                   $ref: '#/components/schemas/ViolationResponseRepresentation'
 components:
   schemas:
+    LoginRequest:
+      type: object
+      required: [username, password]
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+    LoginResponse:
+      type: object
+      required: [token]
+      properties:
+        token:
+          type: string
+          description: JWT token for authentication
     EquipmentRequestRepresentation:
       type: object
       required: [serial, model, address, latitude, longitude, active]
