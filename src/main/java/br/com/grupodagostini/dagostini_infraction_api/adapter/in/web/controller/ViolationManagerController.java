@@ -38,18 +38,18 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ViolationManagerController implements DefaultApi {
 
-    private CreateEquipmentUseCase createEquipmentUseCase;
-    private FindAllEquipmentsUseCase findAllEquipmentsUseCase;
-    private FindEquipmentBySerialUseCase findEquipmentBySerial;
-    private CreateViolationUseCase createViolationUseCase;
-    private FindViolationByIdUseCase findViolationByIdUseCase;
-    private FindViolationsByEquipmentSerialUseCase findViolationsByEquipmentSerialUseCase;
-    private EquipmentInboundMapper equipmentInboundMapper;
-    private EquipmentOutboundMapper equipmentOutboundMapper;
-    private ViolationInboundMapper violationInboundMapper;
-    private ViolationOutboundMapper violationOutboundMapper;
-    private DateTimeMapper dateTimeMapper;
-    private ImageStorageUseCase imageStorageUseCase;
+    private final CreateEquipmentUseCase createEquipmentUseCase;
+    private final FindAllEquipmentsUseCase findAllEquipmentsUseCase;
+    private final FindEquipmentBySerialUseCase findEquipmentBySerial;
+    private final CreateViolationUseCase createViolationUseCase;
+    private final FindViolationByIdUseCase findViolationByIdUseCase;
+    private final FindViolationsByEquipmentSerialUseCase findViolationsByEquipmentSerialUseCase;
+    private final EquipmentInboundMapper equipmentInboundMapper;
+    private final EquipmentOutboundMapper equipmentOutboundMapper;
+    private final ViolationInboundMapper violationInboundMapper;
+    private final ViolationOutboundMapper violationOutboundMapper;
+    private final DateTimeMapper dateTimeMapper;
+    private final ImageStorageUseCase imageStorageUseCase;
 
     @Override
     public ResponseEntity<EquipmentResponseRepresentation> createEquipment(EquipmentRequestRepresentation equipmentRequestRepresentation) {
