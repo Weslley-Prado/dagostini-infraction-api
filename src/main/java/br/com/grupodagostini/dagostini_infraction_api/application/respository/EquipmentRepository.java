@@ -1,7 +1,7 @@
-package br.com.grupodagostini.dagostini_infraction_api.application.port.out;
+package br.com.grupodagostini.dagostini_infraction_api.application.respository;
 
 
-import br.com.grupodagostini.dagostini_infraction_api.domain.model.Equipment;
+import br.com.grupodagostini.dagostini_infraction_api.application.domain.model.Equipment;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

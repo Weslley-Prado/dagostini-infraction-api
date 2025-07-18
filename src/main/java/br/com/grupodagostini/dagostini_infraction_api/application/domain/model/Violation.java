@@ -1,4 +1,4 @@
-package br.com.grupodagostini.dagostini_infraction_api.domain.model;
+package br.com.grupodagostini.dagostini_infraction_api.application.domain.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

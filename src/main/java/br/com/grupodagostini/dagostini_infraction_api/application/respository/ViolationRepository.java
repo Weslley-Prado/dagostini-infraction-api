@@ -1,6 +1,6 @@
-package br.com.grupodagostini.dagostini_infraction_api.application.port.out;
+package br.com.grupodagostini.dagostini_infraction_api.application.respository;
 
-import br.com.grupodagostini.dagostini_infraction_api.domain.model.Violation;
+import br.com.grupodagostini.dagostini_infraction_api.application.domain.model.Violation;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.OffsetDateTime;
